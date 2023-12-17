@@ -30,7 +30,7 @@ class Mahasiswa extends Database
     function input($nim, $nama, $prodi, $no_hp, $foto)
     {
         // Validasi jenis file yang diunggah
-        $allowed_types = ['image/jpeg', 'image/png', 'image/jpeg',]; // Tipe file yang diizinkan
+        $allowed_types = ['image/jpeg', 'image/png', 'image/jpeg',]; 
         $file_type = $_FILES['foto']['type'];
         if (!in_array($file_type, $allowed_types)) {
             echo "<script>alert('Tipe file tidak didukung. Hanya gambar JPEG dan PNG yang diizinkan.')</script>";
@@ -92,7 +92,7 @@ class Mahasiswa extends Database
 
     function update($nim, $nama, $prodi, $no_hp, $foto)
     {
-        $allowed_types = ['image/jpeg', 'image/png', 'image/jpg',]; // Tipe file yang diizinkan
+        $allowed_types = ['image/jpeg', 'image/png', 'image/jpg',]; 
         $file_type = $_FILES['foto']['type'];
         if (!in_array($file_type, $allowed_types)) {
             echo "<script>alert('Tipe file tidak didukung. Hanya gambar JPEG dan PNG yang diizinkan.')</script>";
@@ -100,7 +100,7 @@ class Mahasiswa extends Database
             exit();
         }
 
-        $max_size = 5 * 1024 * 1024; // Ukuran maksimal 5MB
+        $max_size = 5 * 1024 * 1024; 
         $file_size = $_FILES['foto']['size'];
         if ($file_size > $max_size) {
             echo "<script>alert('Ukuran file terlalu besar. Maksimal 5MB yang diizinkan.')</script>";
