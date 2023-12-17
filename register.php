@@ -22,7 +22,7 @@ lang="en">
                     exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
             </div>
             <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <form class="card-body" action="proses_auth.php?aksi=register" method="post">
+                <form class="card-body" action="handle_form/proses_auth.php?aksi=register" method="post">
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Nama Langkap</span>

@@ -12,3 +12,6 @@ lang="en">
 </head>
 
 <body>
+<header class="flex px-48 h-auto py-8 bg-white shadow drop-shadow-md items-center w-screen fixed insert-0 z-50 top-0">
+        <a href="dashboard.php" class="text-2xl font-bold text-blue-600">Sistem Informasi Akademik</a>
+    </header>

@@ -19,7 +19,7 @@
                     exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
             </div>
             <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <form action="proses_auth.php?aksi=login" method="post" class="card-body">
+                <form action="handle_form/proses_auth.php?aksi=login" method="post" class="card-body">
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Email</span>

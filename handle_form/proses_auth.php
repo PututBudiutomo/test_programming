@@ -1,5 +1,5 @@
 <?php 
-include 'Auth.php';
+include '../class/Auth.php';
 $auth = new Auth();
 
 $aksi = $_GET['aksi'];
