@@ -11,7 +11,8 @@ if($aksi == "tambah"){
     $nama = $_POST['nama'];
     $prodi = $_POST['prodi'];
     $no_hp = $_POST['no_hp'];
-    $mahasiswa->input($nim, $nama, $prodi, $no_hp);
+    $foto = $_FILES['foto']['name'];
+    $mahasiswa->input($nim, $nama, $prodi, $no_hp, $foto);
     
 }else if($aksi == "cari"){
     $keyword = $_POST['keyword'];
@@ -26,8 +27,9 @@ if($aksi == "tambah"){
     $nama = $_POST['nama'];
     $prodi = $_POST['prodi'];
     $no_hp = $_POST['no_hp'];
-    $mahasiswa->update($nim, $nama, $prodi, $no_hp);
-}else if($aksi == "hapus"){
+    $foto = $_FILES['foto']['name'];
+    $mahasiswa->update($nim, $nama, $prodi, $no_hp, $foto);
+}else if($aksi == "delete"){
     $nim = $_GET['nim'];
     $mahasiswa->delete($nim);
 }

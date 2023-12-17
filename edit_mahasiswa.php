@@ -16,7 +16,7 @@ include 'header.php';
     include 'navbar.php';
     ?>
     <div class="p-20 w-auto  ">
-        <form class="p-5 border w-[600px]" action="handle_form/proses_mahasiswa.php?aksi=update" method="post">
+        <form class="p-5 border w-[600px]" action="handle_form/proses_mahasiswa.php?aksi=update" method="post" enctype="multipart/form-data">
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">Nama Mahasiswa</span>
@@ -46,6 +46,16 @@ include 'header.php';
                 </label>
                 <input type="text" name="no_hp" id="no_hp" placeholder="No Hp" class="input input-bordered" required  value="<?= $data['no_hp'] ?>"/>
             </div>
+
+            <!-- file input -->
+            <div class="form-control">
+            <label class="label">
+                    <span class="label-text">Fotot</span>
+                </label>
+                <input type="file" name="foto" id="foto" placeholder="Foto" class="input input-bordered" required  value="<?= $data['foto'] ?>"/>
+            </div>
+
+
             <div class="form-control mt-6">
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>

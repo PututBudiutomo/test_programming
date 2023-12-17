@@ -24,7 +24,7 @@ include 'header.php';
             <h1 class="text-3xl font-bold">Data Mahasiswa</h1>
             <btn class="btn btn-primary" onclick="my_modal_1.showModal()">Tambah Data</btn>
 
-            <form  method="post">
+            <form method="post">
                 <input type="text" name="keyword" placeholder="Cari Data" class="input input-bordered w-96">
                 <input type="submit" value="Cari" class="btn btn-primary">
             </form>
@@ -39,6 +39,7 @@ include 'header.php';
                         <th>Nim</th>
                         <th>Program Studi</th>
                         <th>No.Hp</th>
+                        <th>Foto</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -64,9 +65,19 @@ include 'header.php';
                                 <?= $data['no_hp']; ?>
                             </td>
                             <td>
-                            <a href="edit_mahasiswa.php?nim=<?= $data['nim']; ?>" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-error">Hapus</a>
+                                <img class="w-28" src="assets/img/mahasiswa/<?= $data['foto']; ?>" alt="" class="w-20 h-20">
+                            <td>
+                                <a href="edit_mahasiswa.php?nim=<?= $data['nim']; ?>" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-error" onclick="confirmDelete(<?= $data['nim']; ?>)">Hapus</a>
                             </td>
+
+                            <script>
+                                function confirmDelete(nim) {
+                                    if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+                                        window.location.href = `handle_form/proses_mahasiswa.php?nim=${nim}&aksi=delete`;
+                                    }
+                                }
+                            </script>
                         <?php endforeach; ?>
                 </tbody>
             </table>
@@ -85,7 +96,7 @@ include 'footer.php';
     <div class="modal-box">
         <h3 class="font-bold text-lg">Tambah data mahasiswa</h3>
         <p class="py-4">Press ESC key or click the button below to close</p>
-        <form action="handle_form/proses_mahasiswa.php?aksi=tambah" method="post">
+        <form action="handle_form/proses_mahasiswa.php?aksi=tambah" method="post" enctype="multipart/form-data">
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">Nama Mahasiswa</span>
@@ -105,8 +116,8 @@ include 'footer.php';
                 <label class="label">
                     <span class="label-text">Program Studi</span>
                 </label>
-                <input type="text" name="prodi" id="prodi" placeholder="Program Studi"
-                    class="input input-bordered" required />
+                <input type="text" name="prodi" id="prodi" placeholder="Program Studi" class="input input-bordered"
+                    required />
             </div>
 
             <div class="form-control">
@@ -115,6 +126,15 @@ include 'footer.php';
                 </label>
                 <input type="text" name="no_hp" id="no_hp" placeholder="No Hp" class="input input-bordered" required />
             </div>
+
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Foto</span>
+                </label>
+                <input type="file" name="foto" id="foto" placeholder="Foto" class="input input-bordered" required />
+            </div>
+
+
             <div class="form-control mt-6">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
